@@ -1,4 +1,4 @@
-# Store
+# portfolio
 Termo de Direitos Autorais – Professor K. Rodrigo
 
 Todo o conteúdo disponibilizado por mim, Professor K. Rodrigo, incluindo, mas não se limitando a textos, imagens, códigos (HTML, CSS, JavaScript) e demais materiais de minha autoria, está protegido por direitos autorais.
