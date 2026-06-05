@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">Zé Repasse</title>
+  <desc id="desc">Marca Zé Repasse em fundo amarelo.</desc>
+  <rect width="900" height="560" fill="#ffcc00"/>
+  <g fill="#050505" font-family="Arial Black, Arial, sans-serif" text-anchor="middle">
+    <text x="450" y="270" font-size="245" font-style="italic" letter-spacing="-22">Zé</text>
+    <text x="450" y="405" font-size="88" letter-spacing="2">REPASSE</text>
+  </g>
+</svg>
