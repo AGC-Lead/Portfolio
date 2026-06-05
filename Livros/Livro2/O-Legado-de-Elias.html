@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O legado de Elias</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f0e7;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            max-width: 900px;
+            text-align: center;
+        }
+        .cover, .prologue, .chapter {
+            display: none;
+        }
+        .visible {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Capa do Livro */
+        .book-cover {
+            width: 300px;
+            height: 450px;
+            background: linear-gradient(to bottom, #8b4513, #5a3310);
+            color: #f4f4f4;
+            border: 5px solid #38210c;
+            border-radius: 5px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-image: url('ImagensC1/Capa\ -\ Livro\ 2.webp'); /* Substitua pela imagem da capa */
+            background-size: cover;
+            background-position: center;
+        }
+        .book-cover h1, .book-cover p {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .cover button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #5a3310;
+            color: #f4f4f4;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .cover button:hover {
+            background-color: #38210c;
+        }
+
+        /* Livro aberto */
+        .book {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            width: 900px;
+            height: 600px;
+            background: #fff;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+        .page {
+            width: 50%;
+            padding: 30px;
+            overflow-y: auto;
+            box-sizing: border-box;
+            position: absolute;
+            top: 0;
+            height: 100%;
+        }
+        .page-left {
+            background: #f9f7f2;
+            border-right: 1px solid #ddd;
+            left: 0;
+            z-index: 1;
+        }
+        .page-left img {
+            width: 100%;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .page-right {
+            background: #fdfbf7;
+            right: 0;
+            z-index: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .page-right button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #8b4513;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .page-right button:hover {
+            background-color: #5a3310;
+        }
+        .flip {
+            animation: flipPage 1s forwards;
+        }
+        @keyframes flipPage {
+            0% { transform: rotateY(0); }
+            50% { transform: rotateY(-90deg); }
+            100% { transform: rotateY(-180deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Capa do Livro -->
+        <div class="cover visible" id="cover">
+            <div class="book-cover">
+                <h1>O legado de Elias</h1>
+                <p>Aventura e morte</p>
+            </div>
+            <button onclick="startChapter(1)">Iniciar Livro</button>
+        </div>
+
+        <!-- Estrutura de capítulos -->
+        <!-- Exemplo de capítulo -->
+        <div class="chapter" id="chapter-1-page-1">
+            <div class="book">
+                <div class="page page-left">
+                    <h2>Capítulo 1 - Prológo</h2>
+                    <h3>O Crepúsculo das Nações</h3>
+                    <p>Num vasto continente de riquezas e diversidades, Belion, doze nações se ergueram como testemunhas do poder e da engenhosidade de suas gentes. No extremo norte, além das vastidão congeladas e das montanhas eternamente cobertas de gelo, uma ameaça antiga e implacável assombrava as terras livres. Essa ameaça era a Nação Demoníaca dos Mortos , lar de demônios e criaturas das trevas, que se erguiam como sombras contra a luz da civilização.</p>
+                    <p>No restante do continente, as nações floresceram em sua singularidade. Logo ao lado das terras demoníacas (Imeríó Samonaca des Mottia), o Império Sacro de Britânia (Nazió Dacro Bimtoa) , governado por uma linhagem de reis abençoados, tornou-se um bastião de força e tradição. Ao seu Sul, o Império Santo Divino (Sacrca), uma terra de fervor religioso, guiada pela crença em deuses ancestrais que prometiam proteção contra o mal. Mais ao sudoeste, o Reino Ragen (Ancbd Rapgio), o domínio dos anões, ressoava com o som incessante de martelos nas profundezas de suas minas. Além deles, as Federações Libertárias (Grande Liberaties de Rhio) prosperaram como uma confederação de estados livres, enquanto a majestosa Grande Floresta de Rhio (Grande Flerestas de Rhtio) e (Grande Fladestas de Moto) , lar dos elfos, era um refúgio de sabedoria e magia ancestral.</p>
+                    <p>Ainda mais ao Leste do Reino Santo, as Montanhas Dragonianas (Anttes) abrigavam as lendárias criaturas aladas, guardiões das verdades mais antigas do mundo. No Nordeste do Reino Santo, a Nação Unificada da China (Reino de Myo), com suas muralhas e exércitos, era uma potência cultural e militar. Por fim, no extremo sul e Sudeste do Continente, o Grande Deserto dos Ossos , uma terra árida e cruel, guardava segredos esquecidos pelos tempos.</p>
+                    <img src="ImagensC1/Mapa de Belion.webp" alt="Imagem do Capítulo 1"> <!-- Substitua pela imagem -->
+                    <h4>1</h4>
+                </div>
+                <div class="page page-right">
+                    <button onclick="flipPage('chapter-1-page-2')">A Chegada da Escuridão</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="chapter" id="chapter-1-page-2">
+            <div class="book">
+                <div class="page page-left">
+                    <h3>A Chegada da Escuridão</h3>
+                    <p>Por 1.500 anos após a Conquista, nações essas coexistiram, algumas vezes em guerra, outras em aliança, mas sempre unidas pela memória da conquista inicial, na qual humanos, elfos, anões e demi-humanos subjugaram as terras selvagens para erguer sua civilização. Entretanto, essa estabilidade foi abalada no ano de 1.219 A.C, quando surgiram os primeiros sinais da Era das Trevas .</p>
+                    <p>Da Nação Demoníaca dos Mortos, hordas de demônios conseguiram a marchar, trazendo destruição para as nações vizinhas. Guiados por líderes sombrios e pela ambição de dominar todo o continente, os demônios espalharam caos por onde passaram, massacrando populações inteiras e deixando terras devastadas.</p>
+                    <img src="capitulo1-pagina2.jpg" alt="Imagem do Capítulo 1 Página 2"> <!-- Substitua -->
+                    <h4>2</h4>
+                </div>
+                <div class="page page-right">
+                    <button onclick="flipPage('chapter-1-page-3')">A Aliança</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="chapter" id="chapter-1-page-3">
+            <div class="book">
+                <div class="page page-left">
+                    <h3>A Aliança das Sete Nações</h3>
+                    <p>Desesperados para conter a maré de destruição, sete nações e a Guilda de Magos se uniram em uma traição convidada: o Império Sacro de Brittania , o Império Santo Divino , o Reino Ragen , a Grande Floresta de Rhio e mais três pequenas nações, cujos nomes foram esquecidos pelo tempo, mas cujo sacrifício foi necessário. Este pacto marcou a primeira vez que humanos, elfos, anões e outras raças lutaram lado a lado desde a conquista do continente.</p>
+                    <p>Sob um único padrão, os exércitos marcharam para o norte, enfrentando os demônios sobre a influência da Entidade em batalhas que estremeceram a terra. Cada batalha traz vitórias e perdas devastadoras, mas a união das raças manteve viva a esperança de que o continente não sucumbiria às trevas.</p>
+                    <img src="capitulo1-pagina3.jpg" alt="Imagem do Capítulo 1 Página 3"> <!-- Substitua -->
+                    <h4>3</h4>
+                </div>
+                <div class="page page-right">
+                    <button onclick="flipPage('chapter-1-page-4')">O Legado do Sangue</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="chapter" id="chapter-1-page-4">
+            <div class="book">
+                <div class="page page-left">
+                    <h3>O Legado do Sangue</h3>
+                    <p>Esta história se passa no crepúsculo de uma era marcada pelo conflito e pela resistência. O sacrifício das Sete Nações será contado em canções e histórias por gerações, mas o futuro permanece incerto. Os demônios foram derrotados? Ou apenas contido, aguardando o momento certo para retornar? Enquanto as nações lamberem suas feridas e reconstruírem seus reinos, uma sombra ainda paira no horizonte.</p>
+                    <p>E assim, inicia-se mais um capítulo na história deste mundo dividido entre a luz e as trevas. A aliança permanecerá? Ou as sensações da discórdia acabarão por destruir-la? A resposta aguarda nos corações de heróis e vilões que ainda estão por surgir.</p>
+                    <img src="capitulo1-pagina4.jpg" alt="Imagem do Capítulo 1 Página 4"> <!-- Substitua -->
+                    <h4>4</h4>
+                </div>
+                <div class="page page-right">
+                    <button onclick="flipPage('chapter-1-page-5')">Nova Era</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="chapter" id="chapter-1-page-5">
+            <div class="book">
+                <div class="page page-left">
+                    <h3>O Início de Uma Nova Era</h3>
+
+                    <h4>A População e a Vida no Império</h4>
+                    <p>O Império Sacro de Brittania, uma das maiores potências do continente, é lar de uma população diversa, composta majoritariamente por humanos, mas com significativas comunidades de elfos, anões e demi-humanos. Esses povos vivem em relativa harmonia, unidos pela promessa de proteção e prosperidade sob o governo imperial. A vida nas cidades é marcada pelo comércio vibrante, a presença de guardas imperiais, e o som constante de sinos que anunciam as atividades diárias. Já nas regiões rurais, os campos verdes e as vilas tranquilas são mantidos com dedicação pelos agricultores, que fornecem o sustento para toda a nação.</p>
+                    <p>A religião ocupa um lugar central na vida do povo. Templos majestosos dedicados ao Deus Protetor do Sacro Império pontilham as paisagens urbanas e rurais, e cerimônias religiosas são eventos que unem as comunidades, independentemente de suas diferenças culturais.</p>
+
+                    <h4>A Família Imperial: Guardiões da Tradição</h4>
+                    <p>No topo da pirâmide social está a família imperial, descendente direta do fundador do império, o lendário Rei Arthur, o Primeiro Justo. O atual imperador, Valerian IV, é visto como um líder justo e estrategista habilidoso, guiando o império em tempos de paz e guerra. Sua esposa, a imperatriz Elira, a Sabedoria de Brittania, desempenha um papel crucial como mediadora entre os estados e conselheira principal do imperador.</p>
+                    <p>Os filhos imperiais, o príncipe herdeiro Cedric, a princesa Aveline, e o jovem príncipe Rowan, são figuras públicas admiradas. Cedric, o mais velho, é um guerreiro carismático que inspira as tropas, enquanto Aveline se dedica às artes mágicas, frequentemente trabalhando em colaboração com a Guilda de Magos. Rowan, ainda em treinamento, demonstra habilidades promissoras tanto em combate quanto em diplomacia.</p>
+
+                    <h4>O Militarismo: A Espinha Dorsal do Império</h4>
+                    <p>A força militar de Brittania é a base de sua estabilidade e poder. O exército imperial é composto por várias legiões, conhecidas por sua disciplina e eficiência. A elite militar é formada pelos Cavaleiros de Ouro, uma ordem sagrada que responde diretamente ao imperador. Esses cavaleiros, equipados com armaduras reluzentes e armas encantadas, são símbolos da glória de Brittania.</p>
+                    <p>Além dos cavaleiros, o exército regular inclui arqueiros, lanceiros e magos de batalha, que trabalham em estreita colaboração para manter as fronteiras seguras. No entanto, o militarismo não se limita apenas à proteção; ele também é usado como ferramenta para a expansão territorial e a manutenção da ordem interna.</p>
+
+                    <h4>As Guildas Independentes</h4>
+                    <h5>A Guilda de Aventureiros</h5>
+                    <p>A Guilda de Aventureiros é uma organização independente, composta por indivíduos de diversas raças e habilidades que buscam fortuna e fama. Operando fora da autoridade direta das nações, a guilda desempenha um papel crucial na resolução de problemas locais, como a contenção de monstros, a exploração de ruínas antigas e a recuperação de artefatos perdidos. Apesar de sua independência, a guilda mantém uma relação de respeito mútuo com o império, frequentemente aceitando contratos de oficiais imperiais.</p>
+
+                    <h5>A Guilda de Magos</h5>
+                    <p>Já a Guilda de Magos é um centro de conhecimento arcano que transcende fronteiras políticas. Seus membros dedicam suas vidas ao estudo das artes mágicas, buscando compreender os mistérios do mundo e do universo. Embora a guilda não se submeta à autoridade imperial, muitos de seus membros colaboram com Brittania, oferecendo conselhos e assistência mágica. Contudo, a guilda também guarda segredos profundos, o que desperta tanto respeito quanto desconfiança por parte das nações.</p>
+
+                    <h4>A Capital: Bretão, a Cidade da Glória</h4>
+                    <p>No coração do império está Bretão, a majestosa capital de Brittania. Conhecida como a Cidade da Glória, Bretão é um centro cultural, político e econômico sem igual. Suas ruas pavimentadas de mármore branco estão repletas de mercados, templos e escolas de combate e magia. No centro da cidade ergue-se o Palácio de Ouro, residência da família imperial, cujas torres reluzem ao sol como faróis de esperança.</p>
+                    <p>A cidade também é famosa por seu Coliseu de Bretão, onde torneios são realizados para celebrar heróis e entreter o povo. A cada esquina, bardos cantam canções que narram as glórias do império e histórias de coragem em tempos de guerra.</p>
+
+                    <h4>Os Quatro Estados de Brittania</h4>
+                    <p>O Império Sacro de Brittania é dividido em quatro estados, cada um com características únicas:</p>
+
+                    <h5>Lórian, o Norte Frio</h5>
+                    <p>Conhecido por suas montanhas nevadas e tribos resistentes, Lórian é a linha de defesa contra as ameaças do norte. Os guerreiros de Lórian são famosos por sua resistência e habilidade com armas pesadas.</p>
+
+                    <h5>Alandria, o Sul Dourado</h5>
+                    <p>Uma região de planícies férteis e clima agradável, Alandria é o celeiro do império, produzindo grande parte dos alimentos que sustentam sua população. Sua capital, Elyseum, é um importante centro comercial.</p>
+
+                    <h5>Westhallow, a Terra dos Cavaleiros</h5>
+                    <p>Localizado no oeste, Westhallow é conhecido por suas academias de cavalaria e treinamento militar. É daqui que muitos dos Cavaleiros de Ouro emergem para servir o imperador.</p>
+
+                    <h5>Draventh, o Leste Místico</h5>
+                    <p>No leste, Draventh é uma terra rica em recursos mágicos e sede de diversas academias de magia. Suas florestas encantadas e ruínas antigas atraem tanto estudiosos quanto aventureiros.</p>
+
+                    <h4>O Início de Uma Nova Era</h4>
+                    <p>Com sua população vibrante, uma família imperial dedicada, um exército forte e as guildas independentes atuando como forças neutras, o Império Sacro de Brittania parece invencível. Porém, em tempos de paz, as sementes do conflito frequentemente germinam. Intrigas políticas, ambições pessoais e uma sombra crescente no horizonte prometem testar a força do império e daqueles que juraram protegê-lo.</p>
+                    <img src="capitulo1-pagina5.jpg" alt="Imagem do Capítulo 1 Página 5"> <!-- Substitua -->
+                    <h4>5</h4>
+                </div>
+                <div class="page page-right">
+                    <button onclick="flipPage('chapter-2-page-1')">Avançar para o Capítulo 2</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Capítulo 2-->
+
+        <div class="chapter" id="chapter-2-page-1">
+            <div class="book">
+                <div class="page page-left">
+                    <h3>Continuar</h3>
+                    <p>Continuar</p>
+                    <img src="capitulo2-pagina1.jpg" alt="Imagem do Capítulo 2 Página 1">
+                    <h4>3</h4>
+                </div>
+                <div class="page page-right">
+                    <button onclick="flipPage('chapter-2-page-2')">Continuar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Adicione mais capítulos e páginas seguindo o padrão -->
+    </div>
+
+    <!-- Áudios para músicas de capítulos -->
+    <audio id="background-music" loop preload="auto"></audio>
+    <audio id="page-flip-sound" src="Sons/paper-turn-40077 (mp3cut.net).mp3" preload="auto"></audio>
+
+    <script>
+        // Música de fundo por capítulo
+        const chapterMusic = {
+            1: 'Sons/medieval-ambient-236809.mp3',
+            2: 'Sons/medieval-citytavern-ambient-235876.mp3',
+            // Adicione músicas para os outros capítulos
+        };
+
+        // Função para iniciar um capítulo com música
+        function startChapter(chapterNumber) {
+            stopMusic(); // Para a música anterior
+            const music = chapterMusic[chapterNumber];
+            if (music) {
+                const audio = document.getElementById('background-music');
+                audio.src = music;
+                audio.play();
+            }
+            flipPage(`chapter-${chapterNumber}-page-1`);
+        }
+
+        // Função para parar a música
+        function stopMusic() {
+            const audio = document.getElementById('background-music');
+            audio.pause();
+            audio.currentTime = 0;
+        }
+
+        // Função para tocar o som de virar página
+        function playPageFlipSound() {
+            const audio = document.getElementById('page-flip-sound');
+            if (audio) {
+                audio.currentTime = 0; // Reinicia o som
+                audio.play(); // Reproduz o som
+            }
+        }
+
+        // Função para alternar entre páginas
+        function flipPage(nextSection) {
+            const book = document.querySelector('.book');
+            playPageFlipSound(); // Toca o som de virar página
+            book.classList.add('flip'); // Aplica a animação de virar página
+            setTimeout(() => {
+                document.querySelectorAll('.container > div').forEach(section => {
+                    section.classList.remove('visible');
+                });
+                document.getElementById(nextSection).classList.add('visible');
+                book.classList.remove('flip'); // Remove a animação para reutilização
+            }, 1000); // Tempo da animação
+        }
+    </script>
+</body>
+</html>
